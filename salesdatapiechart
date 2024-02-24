@@ -1,0 +1,16 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv("data2.csv")
+
+
+segment_sales_total = df.groupby('Segment')['Sales'].sum()
+
+
+plt.figure(figsize=(8, 8))
+plt.pie(segment_sales_total, labels=segment_sales_total.index, autopct='%1.1f%%', startangle=140, colors=plt.cm.tab10.colors)
+plt.title('Sales Distribution by Segment')
+plt.axis('equal') 
+plt.tight_layout()
+plt.show()
