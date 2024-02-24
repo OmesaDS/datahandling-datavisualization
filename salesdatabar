@@ -11,3 +11,18 @@ plt.ylabel('Sales')
 plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.tight_layout()
 plt.show()
+(or)
+from google.colab import drive
+import pandas as pd
+import matplotlib.pyplot as plt
+drive.mount('/content/drive')
+csv_path = '/content/salesdata.csv'
+plt.figure(figsize=(10, 6))
+plt.bar(df['Segment'], df['Sales'], color='skyblue')
+plt.title('Sales by Segment')
+plt.xlabel('Segment')
+plt.ylabel('Sales')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+plt.show()
+             
