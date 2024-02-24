@@ -1,0 +1,24 @@
+from google.colab import drive
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+drive.mount('/content/drive')
+
+
+csv_path = '/content/salesdata.csv'
+
+
+try:
+   df = pd.read_csv(csv_path, encoding='utf-8')
+except UnicodeDecodeError:
+   df = pd.read_csv(csv_path, encoding='latin-1')
+region_ship_mode_counts = df.groupby(['Region', 'Ship_Mode']).size().unstack(fill_value=0)
+plt.figure(figsize=(10, 6))
+region_ship_mode_counts.plot(kind='bar', stacked=False)
+plt.title('Orders by Region and Ship Mode')
+plt.xlabel('Region')
+plt.ylabel('Number of Orders')
+plt.xticks(rotation=45)
+plt.legend(title='Ship Mode')
+plt.show()
