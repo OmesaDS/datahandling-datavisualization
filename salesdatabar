@@ -1,0 +1,13 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv("data2.csv")
+#Plotting
+plt.figure(figsize=(10, 6))
+plt.bar(df['Segment'], df['Sales'], color='skyblue')
+plt.title('Sales by Segment')
+plt.xlabel('Segment')
+plt.ylabel('Sales')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+plt.show()
